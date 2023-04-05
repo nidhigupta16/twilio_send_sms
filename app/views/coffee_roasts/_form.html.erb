@@ -1,0 +1,27 @@
+<%= form_with(model: coffee_roast) do |form| %>
+  <% if coffee_roast.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(coffee_roast.errors.count, "error") %> prohibited this coffee_roast from being saved:</h2>
+
+      <ul>
+        <% coffee_roast.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :roast_name, style: "display: block" %>
+    <%= form.text_field :roast_name %>
+  </div>
+
+  <div>
+    <%= form.label :roast_description, style: "display: block" %>
+    <%= form.text_area :roast_description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
